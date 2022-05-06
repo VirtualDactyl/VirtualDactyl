@@ -21,7 +21,7 @@ app.use(require('./handelers/error'));
 // Logging
 app.use((req, res, next) => {
   if (req.path == '/favicon.ico') return next();
-  
+
   console.log(`${chalk.green(req.ip)} ${chalk.blue(req.method)} ${chalk.red(req.path)}`);
   next();
 });
@@ -31,6 +31,9 @@ app.use(require("./routes"));
 
 // EJS
 app.set('view engine', 'ejs');
+
+// Assets
+app.use('/assets', express.static(__dirname + '/assets'));
 
 // Load routes
 Object.keys(pages).forEach(key => {
