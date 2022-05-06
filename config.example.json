@@ -1,0 +1,14 @@
+{
+    "port": 3000,
+    "secret": "Hello, World (CHANGE THIS PLS)",
+
+    "secure": true,
+    "behindProxy": true,
+
+    "database": {
+        "host": "127.0.01",
+        "port": "3306",
+        "username": "root",
+        "password": "The-Cool-Root-Password"
+    }
+}
