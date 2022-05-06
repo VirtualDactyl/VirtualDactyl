@@ -1,15 +1,30 @@
-# REST API Template
-[![GitHub issues](https://img.shields.io/github/issues/BasToTheMax/REST-API?style=for-the-badge)](https://github.com/BasToTheMax/REST-API/issues)
-A template to make your own REST API!
+# VirtualDactyl
+VirtualDactyl is a pterodactyl client panel where users can make their own servers.
 
 ## Features
-> Logging
+- User registration
+- Users can make their own servers
+- Store
+- Billing system
+- Managing servers ( console, filemanager, databases, backups and more! )
 
-> Route handeler
+## Installation
+### Step 1
+Clone the repository
+```bash
+git clone https://github.com/VirtualDactyl/VirtualDactyl.git
+```
 
-> Easy installer
+### Step 2
+Install nodejs modules
+```bash
+npm install
+```
 
-> Pretty json
+### Step 3
+Rename the `config.example.json` file to `config.json` and fill in all information!
 
-## Docs
-[Open docs](https://bastothemax.github.io/REST-API/)
+## Runing
+```bash
+npm run start
+```
