@@ -10,26 +10,41 @@ fs.readdirSync(__dirname).forEach(function(file) {
     // If the file is 'index.js' continue to next file
     if (file == "index.js") return;
 
-    // split file name
-    var FileName = file.split('.');
-
-    // get the medhod and name
-    const method = FileName[0];
-    const name = FileName[1];
-
     // Import the route
     const route = require('./' + file);
-
     // Make a endpoint of the route
-    app.get(`/${route.name}`, async (req, res) => {
-        try {
-            // try to execute the code
-            route.run(req, res);
-        } catch(e) {
-            res.status(500)
-            res.send('error' + String(e));
-        }         
-    })
+    if (route.method == 'GET') {
+        app.get(`/api/${route.name}`, async (req, res) => {
+            try {
+                // try to execute the code
+                route.run(req, res);
+            } catch(e) {
+                res.status(500)
+                res.send('error' + String(e));
+            }         
+        });
+    } else if (route.method == 'POST') {
+        app.post(`/api/${route.name}`, async (req, res) => {
+            try {
+                // try to execute the code
+                route.run(req, res);
+            } catch(e) {
+                res.status(500)
+                res.send('error' + String(e));
+            }         
+        });
+    }
+    
+});
+
+// 404 routes
+app.all('/api', (req, res) => {
+    res.status(404);
+    res.send('');
+});
+app.all('/api/*', (req, res) => {
+    res.status(404);
+    res.send('');
 });
 
 module.exports = app;
