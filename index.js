@@ -1,9 +1,13 @@
 // Import packages
 const express = require("express");
 const chalk = require("chalk");
+const fs = require('fs');
 
 // Load config
 const config = require('./config.json');
+
+// Load pages
+const pages = require('./pages.json');
 
 // Setup express
 const app = express();
@@ -23,9 +27,32 @@ app.use((req, res, next) => {
 // Routing
 app.use(require("./routes"));
 
-// Home page
-app.get("/", (req, res) => {
-  res.send("Home page");
+// EJS
+app.set('view engine', 'ejs');
+
+// Load routes
+Object.keys(pages).forEach(key => {
+  app.get(key, (req, res) => {
+    if (fs.existsSync('./views/' + key + '.ejs')) {
+      res.render(
+        pages[key][0],
+        {
+          req,
+          res,
+          app
+        }
+      );
+    } else {
+      res.render('404');
+    }
+  });
+})
+
+// 404 route
+app.all('*', (req, res) => {
+  res.render(
+    '404'
+  );
 });
 
 // Start listening on port 5000

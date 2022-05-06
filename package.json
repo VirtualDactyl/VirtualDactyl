@@ -19,6 +19,7 @@
   "homepage": "https://github.com/BasToTheMax/REST-API#readme",
   "dependencies": {
     "chalk": "^4.0.0",
+    "ejs": "^3.1.7",
     "express": "^4.17.3"
   },
   "bin": {

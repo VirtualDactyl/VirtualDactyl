@@ -1,0 +1,20 @@
+{
+    "/": ["index", 0],
+
+    "/dashboard": ["dashboard", 1],
+
+    "/auth/login": ["auth/login", 0],
+    "/auth/register": ["auth/register", 0],
+    "/auth/forget_password": ["auth/password", 0],
+    "/auth/verify": ["auth/verify", 0],
+    "/auth/new_password": ["auth/newpass", 0],
+
+    "/servers": ["servers/list", 1],
+    "/servers/new": ["servers/new", 1],
+
+    "/servers/:id/info": ["servers/get", 1],
+    "/servers/:id/delete": ["servers/delete", 1],
+    "/servers/:id/console": ["servers/console", 1],
+    "/servers/:id/files": ["servers/files", 1],
+    "/servers/:id/databases": ["servers/databases", 1]
+}
