@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page not found</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0px;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+
+            color: gray;
+        }
+        .title {
+            font-size: 250px;
+            font-weight: bolder;
+        }
+        .desc {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">404</div>
+    <div class="desc">This page was not found!</div>
+
+    <script>
+        $(document).ready(function() {
+            function runIt() {           
+            var baloon = $('body');
+            baloon.animate({opacity:'1'}, 1500);
+            baloon.animate({opacity:'0.7'}, 1500, runIt);
+            }
+            runIt();
+        });
+    </script>
+</body>
+</html>
