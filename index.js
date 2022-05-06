@@ -20,6 +20,8 @@ app.use(require('./handelers/error'));
 
 // Logging
 app.use((req, res, next) => {
+  if (req.path == '/favicon.ico') return next();
+  
   console.log(`${chalk.green(req.ip)} ${chalk.blue(req.method)} ${chalk.red(req.path)}`);
   next();
 });
