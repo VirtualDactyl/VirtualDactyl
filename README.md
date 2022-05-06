@@ -20,8 +20,10 @@ Install nodejs modules
 ```bash
 npm install
 ```
-
 ### Step 3
+Create a MySQL Database
+
+### Step 4
 Rename the `config.example.json` file to `config.json` and fill in all information!
 
 ## Runing
