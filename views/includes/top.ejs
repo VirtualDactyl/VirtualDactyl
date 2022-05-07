@@ -14,5 +14,17 @@
     <link rel="stylesheet" href="<%- app.distdir %>/css/adminlte.min.css">
 </head>
 <body class="dark-mode">
-    <%- include('header.ejs') %>
-    <%- include('nav.ejs') %>
+    <%- include('auth-header.ejs') %>
+    <%- include('auth-nav.ejs') %>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="content">
