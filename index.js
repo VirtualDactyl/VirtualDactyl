@@ -20,11 +20,18 @@ app.use(require('./handelers/error'));
 
 // Logging
 app.use((req, res, next) => {
+  req.user = {};
+  req.user.emailhash = '6487b781d1d8d2fea14810170cd92f41';
+  req.user.username = 'BasToTheMax';
   if (req.path == '/favicon.ico') return next();
 
   console.log(`${chalk.green(req.ip)} ${chalk.blue(req.method)} ${chalk.red(req.path)}`);
   next();
 });
+
+app.appname = 'VirtualDactyl';
+app.plugindir = '/assets/plugins';
+app.distdir = '/assets/dist';
 
 // Routing
 app.use(require("./routes"));
@@ -55,6 +62,7 @@ Object.keys(pages).forEach(key => {
 
 // 404 route
 app.all('*', (req, res) => {
+  res.status(404);
   res.render(
     '404'
   );

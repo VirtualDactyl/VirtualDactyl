@@ -1,5 +1,6 @@
 {
     "/": ["index", 0],
+    "/index": ["index", 0],
 
     "/dashboard": ["dashboard", 1],
 
@@ -16,5 +17,7 @@
     "/servers/:id/delete": ["servers/delete", 1],
     "/servers/:id/console": ["servers/console", 1],
     "/servers/:id/files": ["servers/files", 1],
-    "/servers/:id/databases": ["servers/databases", 1]
+    "/servers/:id/databases": ["servers/databases", 1],
+
+    "/account": ["account/main", 1]
 }
