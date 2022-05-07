@@ -38,7 +38,7 @@ app.use('/assets', express.static(__dirname + '/assets'));
 // Load routes
 Object.keys(pages).forEach(key => {
   app.get(key, (req, res) => {
-    if (fs.existsSync('./views/' + key + '.ejs')) {
+    if (fs.existsSync('./views/' + pages[key][0] + '.ejs')) {
       res.render(
         pages[key][0],
         {
