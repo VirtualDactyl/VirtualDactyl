@@ -117,6 +117,29 @@
         }
     }
 
+    async function createStoreplansTable() {
+        var table = 'storeplans';
+        var exists = await knex.schema.hasTable(table);
+        if (exists == false) {
+            console.log('Creating '+table+' table...')
+            return knex.schema.createTable(table, function(t) {
+                // Collumns
+                t.increments('ID').primary();
+                t.string('name', 1024);
+                t.string('type', 1024);
+                t.string('description', 1024);
+
+                t.integer('price', 1024);
+                t.integer('amountgiven', 1024);
+
+                // Done
+                console.log(chalk.green(table + ' table created!'));
+            });
+        } else {
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on an existing instance?'));
+        }
+    }
+
     // Create tables
     await createUserTable();
     await createServerTable();
