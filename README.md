@@ -33,6 +33,38 @@ Install all the tables
 npm run installdatabase
 ```
 
+### Step 5
+Install knex globally
+```bash
+npm install knex -g
+```
+
+### Step 6
+Create default user
+```bash
+knex seed:run --specific=default.js
+```
+
+## Upgrading
+### Step 1
+Install knex globally
+```bash
+npm install knex -g
+```
+
+### Step 2
+Make a backup of everyting. ( database, files ect )
+
+### Step 3
+Pull the repo. ( git pull )
+
+### Step 4
+Migrate database.
+```bash
+knex migrate:up
+```
+This will update all the tables to work with the new update.
+
 ## Runing
 ```bash
 npm run start
