@@ -11,6 +11,12 @@ module.exports = {
     client: 'better-sqlite3',
     connection: {
       filename: __dirname + '/' + config.database
+    },
+    migrations: {
+      tableName: 'migrations'
+    },
+    seeds: {
+      directory: __dirname + './seeds'
     }
   },
 
@@ -21,6 +27,9 @@ module.exports = {
     },
     migrations: {
       tableName: 'migrations'
+    },
+    seeds: {
+      directory: __dirname + './seeds'
     }
   }
 
