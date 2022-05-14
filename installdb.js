@@ -46,8 +46,26 @@
         }
     }
 
+    async function createServerTable() {
+        var table = 'servers';
+        var exists = await knex.schema.hasTable(table);
+        if (exists == false) {
+            console.log('Creating '+table+' table...')
+            return knex.schema.createTable(table, function(t) {
+                t.increments('ID').primary();
+                t.integer('userID', 100);
+                t.string('servername', 100);
+                t.string('plan', 100);
+                console.log(chalk.green(table + ' table created!'));
+            });
+        } else {
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on a existing instance?'));
+        }
+    }
+
     // Create tables
     await createUserTable();
+    await createServerTable();
 
     // Done
     console.log(chalk.green('Installation complete!'));
