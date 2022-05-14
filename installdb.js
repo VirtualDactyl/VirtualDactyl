@@ -63,6 +63,41 @@
         }
     }
 
+    async function createPlansTable() {
+        var table = 'plans';
+        var exists = await knex.schema.hasTable(table);
+        if (exists == false) {
+            console.log('Creating '+table+' table...')
+            return knex.schema.createTable(table, function(t) {
+                // Frontend
+                t.increments('ID').primary();
+                t.string('name', 100);
+                t.string('description', 1024);
+                t.boolean('enabled');
+
+                // Limits
+                t.integer('limit_ram', 100);
+                t.integer('limit_disk', 100);
+                t.integer('limit_cpu', 100);
+                t.integer('limit_ports', 100);
+                t.integer('limit_backups', 100);
+                t.integer('limit_swap', 100);
+
+                // Price
+                t.integer('hourly_pirce', 100);
+
+                // Location limits
+                t.json('ptero_nodes');
+                t.json('ptero_eggs');
+
+                // Done
+                console.log(chalk.green(table + ' table created!'));
+            });
+        } else {
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on a existing instance?'));
+        }
+    }
+
     // Create tables
     await createUserTable();
     await createServerTable();
