@@ -42,7 +42,7 @@
                 console.log(chalk.green('Users table created!'));
             });
         } else {
-            console.log(chalk.red('Users table already exists! Are you trying to install on a existing instance?'));
+            console.log(chalk.red('Users table already exists! Are you trying to install on an existing instance?'));
         }
     }
 
@@ -59,7 +59,7 @@
                 console.log(chalk.green(table + ' table created!'));
             });
         } else {
-            console.log(chalk.red(table + ' table already exists! Are you trying to install on a existing instance?'));
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on an existing instance?'));
         }
     }
 
@@ -94,13 +94,34 @@
                 console.log(chalk.green(table + ' table created!'));
             });
         } else {
-            console.log(chalk.red(table + ' table already exists! Are you trying to install on a existing instance?'));
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on an existing instance?'));
+        }
+    }
+
+    async function createSettingsTable() {
+        var table = 'settings';
+        var exists = await knex.schema.hasTable(table);
+        if (exists == false) {
+            console.log('Creating '+table+' table...')
+            return knex.schema.createTable(table, function(t) {
+                // Collumns
+                t.increments('ID').primary();
+                t.string('name', 1024);
+                t.string('value', 1024);
+
+                // Done
+                console.log(chalk.green(table + ' table created!'));
+            });
+        } else {
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on an existing instance?'));
         }
     }
 
     // Create tables
     await createUserTable();
     await createServerTable();
+    await createPlansTable();
+    await createSettingsTable();
 
     // Done
     console.log(chalk.green('Installation complete!'));
