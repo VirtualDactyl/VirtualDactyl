@@ -1,5 +1,8 @@
 # Custom
 config.json
 
+# Database
+data.db
+
 # Node
 node_modules
