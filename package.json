@@ -4,7 +4,8 @@
   "description": "Template to make your own REST API with an endpoint handler too!\r Support: https://popcat.xyz/server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "installdatabase": "node installdb.js"
   },
   "repository": {
     "type": "git",

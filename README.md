@@ -8,6 +8,9 @@ VirtualDactyl is a pterodactyl client panel where users can make their own serve
 - Billing system
 - Managing servers ( console, filemanager, databases, backups and more! )
 
+## Requirements
+- NodeJS
+
 ## Installation
 ### Step 1
 Clone the repository
@@ -20,14 +23,12 @@ Install nodejs modules
 ```bash
 npm install
 ```
-### Step 3
-Create a MySQL Database
 
-### Step 4
+### Step 3
 Rename the `config.example.json` file to `config.json` and fill in all information!
 
-### Step 5
-Create MySQL tables
+### Step 4
+Install all the tables
 ```bash
 npm run installdatabase
 ```
