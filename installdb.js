@@ -24,17 +24,23 @@ const knex = require('knex')({
     }
 });
 
+// Functions
 function createUserTable() {
     knex.schema.hasTable('users').then(function(exists) {
         if (!exists) {
-        return knex.schema.createTable('users', function(t) {
-            t.increments('ID').primary();
-            t.string('username', 100);
-            t.string('password', 100);
-            t.string('email', 100);
-            t.string('role', 100); // user, reseller, staff, moderator, admin or owner
-            t.float('coins', 25, 500);
-        });
+            console.log('creating user table...')
+            return knex.schema.createTable('users', function(t) {
+                t.increments('ID').primary();
+                t.string('username', 100);
+                t.string('password', 100);
+                t.string('email', 100);
+                t.string('role', 100); // user, reseller, staff, moderator, admin or owner
+                t.float('coins', 25, 500);
+                console.log('user table created!');
+            });
         }
     });
 }
+
+// Create tables
+createUserTable();
