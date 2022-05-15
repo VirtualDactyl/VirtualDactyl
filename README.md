@@ -49,6 +49,7 @@ VirtualDactyl is a pterodactyl client panel where users can make their own serve
 ## Todo / WIP Features
 - Plugin / Mod installer
 - Version changer
+- External backups ( Filesystem, S3 and more )
 
 ## Requirements
 - NodeJS
