@@ -57,6 +57,10 @@
                 t.integer('userID', 100);
                 t.string('servername', 100);
                 t.string('plan', 100);
+
+                t.string('ptero_serverID');
+                t.integer('ptero_server_num');
+
                 console.log(chalk.green(table + ' table created!'));
             });
         } else {
@@ -185,6 +189,28 @@
         }
     }
 
+    async function createDBServerTable() {
+        var table = 'dbservers';
+        var exists = await knex.schema.hasTable(table);
+        if (exists == false) {
+            console.log('Creating '+table+' table...')
+            return knex.schema.createTable(table, function(t) {
+                t.increments('ID').primary();
+                t.integer('userID', 100);
+                t.string('servername', 100);
+
+                t.string('ptero_serverID');
+                t.integer('ptero_server_num');
+
+                t.string('plan', 100);
+                console.log(chalk.green(table + ' table created!'));
+            });
+        } else {
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on an existing instance?'));
+        }
+    }
+
+
     // Create tables
     await createUserTable();
     await createServerTable();
@@ -193,6 +219,7 @@
     await createStoreplansTable();
     await createCouponsTable();
     await createLinksTable();
+    await createDBServerTable();
 
     // Done
     console.log(chalk.green('Installation complete!'));
