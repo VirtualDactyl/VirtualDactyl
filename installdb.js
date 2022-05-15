@@ -88,6 +88,9 @@
                 t.integer('limit_backups', 100);
                 t.integer('limit_swap', 100);
 
+                // Type
+                t.string('type', 128); // Server, DataBaseServer
+
                 // Price
                 t.integer('hourly_pirce', 100);
 
