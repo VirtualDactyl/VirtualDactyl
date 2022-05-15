@@ -40,6 +40,8 @@
                 t.string('email', 100);
                 t.string('role', 100); // user, reseller, staff, moderator, admin or owner
                 t.float('coins', 25, 500);
+
+                t.integer('ptero_userID'); // The userID from pterodactyl
                 console.log(chalk.green('Users table created!'));
             });
         } else {
