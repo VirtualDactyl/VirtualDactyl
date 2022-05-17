@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "installdatabase": "node installdb.js"
+    "idb": "node installdb.js"
   },
   "repository": {
     "type": "git",

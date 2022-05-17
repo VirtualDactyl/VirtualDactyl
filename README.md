@@ -31,7 +31,7 @@ Rename the `config.example.json` file to `config.json` and fill in all informati
 ### Step 4
 Install all the tables
 ```bash
-npm run installdatabase
+npm run idb
 ```
 
 ### Step 5
