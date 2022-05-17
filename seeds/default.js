@@ -36,7 +36,7 @@ exports.seed = async function(knex) {
   ]);
 
   // Create some default settings
-  await knex('links').insert([
+  await knex('settings').insert([
     {
       name: 'site.title',
       value: 'VirtualDactyl'
