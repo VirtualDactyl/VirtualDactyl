@@ -16,7 +16,7 @@ module.exports = {
       tableName: 'migrations'
     },
     seeds: {
-      directory: __dirname + './seeds'
+      directory: __dirname + '/seeds'
     },
     useNullAsDefault: true
   },
@@ -30,7 +30,7 @@ module.exports = {
       tableName: 'migrations'
     },
     seeds: {
-      directory: __dirname + './seeds'
+      directory: __dirname + '/seeds'
     },
     useNullAsDefault: true
   }

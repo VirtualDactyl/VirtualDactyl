@@ -3,6 +3,7 @@ config.json
 
 # Database
 data.db
+*data.db
 
 # Node
 node_modules
