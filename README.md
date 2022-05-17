@@ -3,11 +3,54 @@
 > VirtualDactyl is a pterodactyl client panel where users can make their own servers.
 
 ## Features
-- User registration
-- Users can make their own servers
-- Store
+### Global
 - Billing system
-- Managing servers ( console, filemanager, databases, backups and more! )
+- Open Source
+- :)
+
+### Users
+- Users can register accounts
+- Users can create servers
+- Users can manage their server directly in VirtualDactyl ( filemanager, databases and more! )
+- Users can create support tickets
+
+### Resellers
+- Can create users
+- Can create servers for users
+- Resellers still need to pay for the servers
+- API Access (only endpoints for resellers)
+
+### Staff
+- Can send request to get (temporarily) access to a user's server
+- Can answer to tickets
+
+### Moderators
+- Can add / edit / remove staff members
+- Can edit / delete support tickets
+- Can suspend users and servers
+
+### Admins
+- Can add / edit / remove moderators and staff members
+- Can suspend users and servers
+- Can send a user/server delete request
+- API access
+
+### Owner
+- Can add / edit / remove admins, moderators staff members
+- Can edit / remove registered users
+- Can accept a user/server delete request (sent by admins)
+- API access
+
+## Payment methods
+- PayPal
+
+## Themes
+- Default ( AdminLTE )
+
+## Todo / WIP Features
+- Plugin / Mod installer
+- Version changer
+- External backups ( Filesystem, S3 and more )
 
 ## Requirements
 - NodeJS
