@@ -215,6 +215,30 @@
         }
     }
 
+    async function createLogsTable() {
+        var table = 'logs';
+        var exists = await knex.schema.hasTable(table);
+        if (exists == false) {
+            console.log('Creating '+table+' table...')
+            return knex.schema.createTable(table, function(t) {
+                t.increments('ID').primary();
+
+                t.string('type', 100); // User, System
+
+                t.string('logType', 1024); // For example: user.mail.update or system.status.start
+                t.string('logdata');
+
+                console.log(chalk.green(table + ' table created!'));
+            });
+        } else {
+            console.log(chalk.red(table + ' table already exists! Are you trying to install on an existing instance?'));
+        }
+    }
+
+    /* TODO: Create payment table */
+    function createPaymentsTable() {
+        console.log(chalk.yellow(`[WARN] The payment table is not made yet, it will not be created!`));
+    }
 
     // Create tables
     await createUserTable();
@@ -225,6 +249,9 @@
     await createCouponsTable();
     await createLinksTable();
     await createDBServerTable();
+    await createLogsTable();
+    await createPaymentsTable();
+
 
     // Done
     console.log(chalk.green('Installation complete!'));
