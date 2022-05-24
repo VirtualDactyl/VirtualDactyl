@@ -6,6 +6,33 @@ const fs = require('fs');
 // Load config
 const config = require('./config.json');
 
+// Knex
+const knex = require('knex')({
+  client: 'better-sqlite3',
+  connection: {
+  filename: __dirname + '/' + config.database
+  },
+  useNullAsDefault: true,
+  migrations: {
+      tableName: 'migrations'
+  },
+  debug: true,
+  log: {
+      warn(message) {
+          console.log('db - warn - ', message)
+      },
+      error(message) {
+          console.log('db - error - ', message)
+      },
+      deprecate(message) {
+          console.log('db - deprecate - ', message)
+      },
+      debug(message) {
+          console.log('db - debug - ', message)
+      },
+  }
+});
+
 // Load pages
 const pages = require('./pages.json');
 
